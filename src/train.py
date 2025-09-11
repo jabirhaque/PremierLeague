@@ -6,7 +6,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 
-data = pd.read_csv('../data/filtered_2024:25.csv')
+data = pd.read_csv('../data/train.csv')
 
 data['DateTime'] = pd.to_datetime(data['Date'] + ' ' + data['Time'])
 data['DayOfWeek'] = data['DateTime'].dt.dayofweek
@@ -29,7 +29,7 @@ preprocessor = ColumnTransformer(
 label_encoder = LabelEncoder()
 y_encoded = label_encoder.fit_transform(y)
 
-X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=0.1, random_state=42)
 
 model = Pipeline(steps=[
     ('preprocessor', preprocessor),
