@@ -38,6 +38,5 @@ model = Pipeline(steps=[
 
 model.fit(X_train, y_train)
 
-# Save the model
 joblib.dump(model, '../output/match_predictor.pkl')
 joblib.dump(label_encoder, '../output/label_encoder.pkl')
