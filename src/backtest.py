@@ -78,5 +78,3 @@ model = joblib.load('../output/match_predictor.pkl')
 label_encoder = joblib.load('../output/label_encoder.pkl')
 
 result = process_all_fixtures_and_calculate_overall_return('../data/test.csv', model, label_encoder)
-
-#python script.py && python train.py && python test.py
