@@ -8,7 +8,7 @@ from sklearn.compose import ColumnTransformer
 
 data = pd.read_csv('../data/train.csv')
 
-data['DateTime'] = pd.to_datetime(data['Date'] + ' ' + data['Time'])
+data['DateTime'] = pd.to_datetime(data['Date'] + ' ' + data['Time'], format='%d/%m/%Y %H:%M', errors='coerce')
 data['DayOfWeek'] = data['DateTime'].dt.dayofweek
 data['Hour'] = data['DateTime'].dt.hour
 data['Minute'] = data['DateTime'].dt.minute
